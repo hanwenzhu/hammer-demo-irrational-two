@@ -24,7 +24,8 @@ theorem irrational_sqrt_two {m n : ℕ} (coprime_mn : m.Coprime n) :
     use n ^ 2
   obtain ⟨k, meq⟩ := dvd_iff_exists_eq_mul_left.mp this
   have : 2 * (2 * k ^ 2) = 2 * n ^ 2 := by
-    hammer
+    rw [← sqr_eq, meq]
+    ring
   have : 2 * k ^ 2 = n ^ 2 := by
     -- `hammer`able
     exact mul_left_cancel₀ two_ne_zero this
