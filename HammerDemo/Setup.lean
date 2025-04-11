@@ -42,7 +42,6 @@ elab "hammer" "[" premises:ident,* "]" : tactic => do
     addIdentStxs := addIdentStxs.push (← `(Aesop.tactic_clause| (add unsafe 5% (by $hammerExtension:tactic))))
   let coreRecommendation : Array Term := premises.take 16 |>.map (fun s => ⟨s.raw⟩)
   let tactic ← `(tactic| aesop? $addIdentStxs* (add unsafe 10% (by hammerCore [] [*, $coreRecommendation,*] {simpTarget := no_target})))
-  logInfo (← PrettyPrinter.ppTactic tactic)
   evalTactic tactic
 
 macro "hammer" : tactic => `(tactic| hammer [])
