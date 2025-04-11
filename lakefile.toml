@@ -1,0 +1,21 @@
+name = "hammer-demo"
+version = "0.1.0"
+defaultTargets = ["HammerDemo"]
+
+[moreServerOptions]
+premiseSelection.apiBaseUrl = "http://52.206.70.13"
+# 10-second timeout for Zipperposition and Duper, respectively
+auto.tptp.timeout = 10
+duper.maxSaturationTime = 10
+# (TODO) don't warn aesop application on <->
+aesop.warn.applyIff = false
+# lower heartbeat count (from default 200000) for faster timeout
+maxHeartbeats = 100000
+
+[[require]]
+name = "QuerySMT"
+git = "https://github.com/JOSHCLUNE/LeanSMTParser"
+rev = "5f3b66a8996294f547d54b2ab4d84276c5304dc3"
+
+[[lean_lib]]
+name = "HammerDemo"
