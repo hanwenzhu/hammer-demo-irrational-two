@@ -4,7 +4,7 @@
 
 (From Josh's ntp-toolkit README:)
 
-Before experimenting with the current hammer evaluation tool, make sure you are able to invoke the `hammer` tactic successfully by installing [zipperposition](https://github.com/sneeuwballen/zipperposition) (version 2.1) and go to the following Lean code (at the end of [HammerDemo/Setup.lean]):
+Before experimenting with the current hammer evaluation tool, make sure you are able to invoke the `hammer` tactic successfully by installing [zipperposition](https://github.com/sneeuwballen/zipperposition) (version 2.1) and go to the following Lean code (at the end of [HammerDemo/Setup.lean](HammerDemo/Setup.lean)):
 ```
 example {p q r : Prop} (hp : p) (hq : q) (hr : r) : p ∧ q := by
   hammer [*] { simpTarget := no_target }
@@ -19,4 +19,4 @@ Try this:
 ```
 
 ## Demos
-Demos can be found under `HammerDemo/`.
+The demo (√2 is irrational) is in [HammerDemo/IrrationalSqrtTwo.lean](HammerDemo/IrrationalSqrtTwo.lean).
