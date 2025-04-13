@@ -35,6 +35,7 @@ theorem irrational_sqrt_two {m n : ℕ} (coprime_mn : m.Coprime n) :
     use k ^ 2
     exact this.symm
   have : 2 ∣ m.gcd n := by
+    -- `hammer`able after `clear coprime_mn`
     rw [Nat.dvd_gcd_iff]
     constructor <;> assumption
   have : 2 ∣ 1 := by
