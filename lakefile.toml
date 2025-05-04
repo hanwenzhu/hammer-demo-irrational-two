@@ -3,7 +3,7 @@ version = "0.1.0"
 defaultTargets = ["HammerDemo"]
 
 [moreServerOptions]
-premiseSelection.apiBaseUrl = "http://52.206.70.13"
+premiseSelection.apiBaseUrl = "http://leanpremise.net"
 # 10-second timeout for Zipperposition and Duper, respectively
 auto.tptp.timeout = 10
 duper.maxSaturationTime = 10
