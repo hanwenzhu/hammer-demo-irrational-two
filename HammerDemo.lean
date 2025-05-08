@@ -1,2 +1,3 @@
 import HammerDemo.Setup
 import HammerDemo.IrrationalSqrtTwo
+import HammerDemo.IrrationalSqrtTwoHammer

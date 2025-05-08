@@ -3,24 +3,23 @@ version = "0.1.0"
 defaultTargets = ["HammerDemo"]
 
 [moreServerOptions]
-premiseSelection.apiBaseUrl = "http://leanpremise.net"
 # 10-second timeout for Zipperposition and Duper, respectively
 auto.tptp.timeout = 10
 duper.maxSaturationTime = 10
 # (TODO) don't warn aesop application on <->
 aesop.warn.applyIff = false
-# lower heartbeat count (from default 200000) for faster timeout
-maxHeartbeats = 100000
+# default
+maxHeartbeats = 200000
 
 [[require]]
 name = "mathlib"
 git = "https://github.com/leanprover-community/mathlib4.git"
-rev = "a6276f4c6097675b1cf5ebd49b1146b735f38c02"
+rev = "v4.18.0"
 
 [[require]]
-name = "QuerySMT"
-git = "https://github.com/JOSHCLUNE/LeanSMTParser"
-rev = "5f3b66a8996294f547d54b2ab4d84276c5304dc3"
+name = "Hammer"
+git = "https://github.com/hanwenzhu/LeanHammer"
+rev = "f0ec2254b92bf1a62e24bd4761ff86a738cdba5a"
 
 [[lean_lib]]
 name = "HammerDemo"

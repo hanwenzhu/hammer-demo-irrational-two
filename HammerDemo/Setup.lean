@@ -41,7 +41,7 @@ elab "hammer" "[" premises:ident,* "]" : tactic => do
   for hammerExtension in ← getHammerExtensions do
     addIdentStxs := addIdentStxs.push (← `(Aesop.tactic_clause| (add unsafe 5% (by $hammerExtension:tactic))))
   let coreRecommendation : Array Term := premises.take 16 |>.map (fun s => ⟨s.raw⟩)
-  let tactic ← `(tactic| aesop? $addIdentStxs* (add unsafe 10% (by hammerCore [] [*, $coreRecommendation,*] {simpTarget := no_target})))
+  let tactic ← `(tactic| aesop? $addIdentStxs* (add unsafe 10% (by hammerCore [] [*, $coreRecommendation,*] {preprocessing := no_preprocessing})))
   evalTactic tactic
 
 macro "hammer" : tactic => `(tactic| hammer [])
@@ -49,4 +49,4 @@ macro "hammer" : tactic => `(tactic| hammer [])
 end Meta
 
 example {p q r : Prop} (hp : p) (hq : q) (_hr : r) : p ∧ q := by
-  hammerCore [] [*] { simpTarget := no_target }
+  hammerCore [] [*] {}
