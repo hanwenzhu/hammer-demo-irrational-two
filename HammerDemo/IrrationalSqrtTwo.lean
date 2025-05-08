@@ -32,12 +32,12 @@ theorem irrational_sqrt_two {m n : ℕ} (coprime_mn : m.Coprime n) :
     -- `hammer`able
     exact mul_left_cancel₀ two_ne_zero this
   have : 2 ∣ n := by
-    -- `hammer`able
+    -- `hammer`able after `symm`ing at `this`
     apply Lemma.two_dvd_of_two_dvd_sq
     use k ^ 2
     exact this.symm
   have : 2 ∣ m.gcd n := by
-    -- `hammer`able after `clear coprime_mn`
+    -- `hammer`able after `clear coprime_mn` or disabling preprocessing
     rw [Nat.dvd_gcd_iff]
     constructor <;> assumption
   have : 2 ∣ 1 := by
