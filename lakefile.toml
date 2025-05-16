@@ -6,10 +6,6 @@ defaultTargets = ["HammerDemo"]
 # 10-second timeout for Zipperposition and Duper, respectively
 auto.tptp.timeout = 10
 duper.maxSaturationTime = 10
-# (TODO) don't warn aesop application on <->
-aesop.warn.applyIff = false
-# default
-maxHeartbeats = 200000
 
 [[require]]
 name = "mathlib"
