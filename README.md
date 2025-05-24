@@ -9,16 +9,11 @@ Before experimenting with the current hammer evaluation tool, go to the followin
 ```lean
 import Hammer
 
-example {p q r : Prop} (hp : p) (hq : q) (hr : r) : p ∧ q := by
-  hammerCore [] [*] { simpTarget := no_target }
+example : True := by
+  hammer {aesopPremises := 0, autoPremises := 0}
 ```
 
-This code should prove the goal and yield the following suggestion:
-
-```
-Try this:
-  duper [*] {preprocessing := full}
-```
+This code should prove the goal *without warnings*.
 
 This ensures the hammer is working properly, and in particular Zipperposition is installed correctly.
 
