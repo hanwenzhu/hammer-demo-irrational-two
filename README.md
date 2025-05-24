@@ -1,5 +1,7 @@
 # hammer-demo-irrational-two
 
+The is a demo of LeanHammer proving the fact that √2 is irrational.
+
 ## System setup
 
 Before experimenting with the current hammer evaluation tool, go to the following Lean code (at the end of [HammerDemo/Setup.lean](HammerDemo/Setup.lean)):
