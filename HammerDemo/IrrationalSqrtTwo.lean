@@ -1,18 +1,15 @@
 import HammerDemo.Setup
-import Mathlib
+import Mathlib.Data.Nat.Prime.Basic
+import Mathlib.Tactic.NormNum.Basic
 
-set_premise_selector Lean.PremiseSelection.Cloud.premiseSelector
-set_option premiseSelection.apiBaseUrl "http://leanpremise.net"
-register_hammer_extension linarith
-
-namespace Lemma
+namespace Nat
 
 theorem two_dvd_of_two_dvd_sq {m : ℕ} (h : 2 ∣ m ^ 2) : 2 ∣ m := by
   -- `hammer`able
   rw [pow_two, Nat.prime_two.dvd_mul] at h
   cases h <;> assumption
 
-end Lemma
+end Nat
 
 namespace IrrationalSqrtTwo
 
@@ -22,20 +19,19 @@ theorem irrational_sqrt_two {m n : ℕ} (coprime_mn : m.Coprime n) :
   intro sqr_eq
   have : 2 ∣ m := by
     -- `hammer`able
-    apply Lemma.two_dvd_of_two_dvd_sq
+    apply Nat.two_dvd_of_two_dvd_sq
     use n ^ 2
   obtain ⟨k, meq⟩ := dvd_iff_exists_eq_mul_left.mp this
-  have : 2 * (2 * k ^ 2) = 2 * n ^ 2 := by
-    rw [← sqr_eq, meq]
-    ring
-  have : 2 * k ^ 2 = n ^ 2 := by
+  have : 2 * n ^ 2 = 2 * (2 * k ^ 2) := by
+    rw [← sqr_eq, meq, mul_pow]
+    omega
+  have : n ^ 2 = 2 * k ^ 2 := by
     -- `hammer`able
     exact mul_left_cancel₀ two_ne_zero this
   have : 2 ∣ n := by
-    -- `hammer`able after `symm`ing at `this`
-    apply Lemma.two_dvd_of_two_dvd_sq
+    -- `hammer`able
+    apply Nat.two_dvd_of_two_dvd_sq
     use k ^ 2
-    exact this.symm
   have : 2 ∣ m.gcd n := by
     -- `hammer`able after `clear coprime_mn` or disabling preprocessing
     rw [Nat.dvd_gcd_iff]
