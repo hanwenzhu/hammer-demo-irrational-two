@@ -1,4 +1,4 @@
-# hammer-demo-apr2025
+# hammer-demo-irrational-two
 
 ## System setup
 
