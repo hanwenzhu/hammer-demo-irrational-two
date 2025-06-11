@@ -10,12 +10,12 @@ duper.maxSaturationTime = 10
 [[require]]
 name = "Hammer"
 git = "https://github.com/JOSHCLUNE/LeanHammer"
-rev = "37d8051b857d42ee16f1bf237bba0a2046813365"
+rev = "c31a2c3088a856232fa0678f369bd0d69e49289e"
 
 [[require]]
 name = "mathlib"
 git = "https://github.com/leanprover-community/mathlib4.git"
-rev = "v4.20.0-rc5"
+rev = "v4.20.0"
 
 [[lean_lib]]
 name = "HammerDemo"
