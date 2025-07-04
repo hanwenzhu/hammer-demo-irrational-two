@@ -30,7 +30,7 @@ theorem irrational_sqrt_two {m n : ℕ} (coprime_mn : m.Coprime n) :
     hammer
   have : 2 ∣ m.gcd n := by
     -- aesop/simp_all eagerly reduces goal to `False` using `m.Coprime n = (m.gcd n = 1)`; we disable them here
-    hammer {disableAesop := true, preprocessing := no_preprocessing}
+    hammer [Nat.dvd_gcd_iff] {disableAesop := true, preprocessing := no_preprocessing}
   have : 2 ∣ 1 := by
     hammer
   hammer
